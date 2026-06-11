@@ -1,0 +1,34 @@
+<main class="generation-page">
+  <nav class="topbar topbar--flow">
+    <app-logo></app-logo>
+  </nav>
+
+  <section class="generation-shell">
+    <div class="ai-core" aria-hidden="true"></div>
+    <p class="eyebrow">Generation IA simulee</p>
+    <h1>Votre voyage devient une serie.</h1>
+    <p class="generation-copy">
+      Never Forget your Trip analyse les images, choisit les moments forts et assemble un episode pret a regarder.
+    </p>
+
+    <div class="generation-meter" aria-label="Progression de generation">
+      <strong>{{ percent() }}%</strong>
+      <div class="progress-track">
+        <span [style.width.%]="percent()"></span>
+      </div>
+    </div>
+
+    <div class="generation-steps">
+      @for (step of steps; track step; let index = $index) {
+        <div
+          class="generation-step"
+          [class.generation-step--done]="completed().includes(step)"
+          [class.generation-step--active]="activeIndex() === index"
+        >
+          <span></span>
+          <p>{{ step }}</p>
+        </div>
+      }
+    </div>
+  </section>
+</main>

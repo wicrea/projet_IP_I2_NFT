@@ -1,0 +1,79 @@
+<main class="landing-page">
+  <nav class="topbar">
+    <app-logo link="/"></app-logo>
+    <div class="topbar__links">
+      <a routerLink="/pricing">Tarifs</a>
+      <a routerLink="/home">Voir la demo</a>
+    </div>
+  </nav>
+
+  <section class="landing-hero" [style.--hero-image]="heroImage">
+    <div class="landing-hero__content">
+      <p class="eyebrow">Never Forget your Trip</p>
+      <h1>Vos voyages.<br />Vos histoires.<br />En episodes.</h1>
+      <p class="hero-copy">L IA transforme vos photos en mini-series inoubliables.</p>
+      <div class="hero-actions">
+        <a class="btn btn--primary" routerLink="/upload">Creer mon episode</a>
+        <a class="btn btn--ghost" routerLink="/home">Explorer l accueil</a>
+      </div>
+    </div>
+
+    <aside class="hero-preview glass-panel">
+      <span class="status-dot"></span>
+      <p>Episode en creation</p>
+      <strong>Bali 2025 - Saison 1</strong>
+      <div class="mini-progress">
+        <span></span>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section-grid">
+    <article class="story-panel story-panel--problem">
+      <p class="eyebrow">Le probleme</p>
+      <h2>Des milliers de photos oubliees dans un telephone.</h2>
+      <p>
+        Chaque voyage finit souvent dans une galerie immense: des captures magnifiques, des moments flous,
+        des visages importants, puis plus rien. Never Forget your Trip redonne une forme regardable a cette memoire brute.
+      </p>
+    </article>
+
+    <article class="story-panel story-panel--solution">
+      <p class="eyebrow">La solution</p>
+      <h2>Photos → IA → Serie premium.</h2>
+      <div class="pipeline" aria-label="Transformation des photos en serie">
+        <span>Photos</span>
+        <i></i>
+        <span>IA</span>
+        <i></i>
+        <span>Episode</span>
+      </div>
+      <p>
+        L IA trie les meilleurs souvenirs, detecte les moments forts et reconstruit un recit sous forme de
+        saison, comme une plateforme de streaming personnelle.
+      </p>
+    </article>
+  </section>
+
+  <section class="benefits-section">
+    <p class="eyebrow">Pourquoi ca marche</p>
+    <h2>Le souvenir devient un format que tout le monde comprend.</h2>
+    <div class="benefit-grid">
+      @for (benefit of benefits; track benefit.title) {
+        <article class="benefit-card">
+          <span></span>
+          <h3>{{ benefit.title }}</h3>
+          <p>{{ benefit.text }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div>
+      <p class="eyebrow">Demo V0</p>
+      <h2>Transformez un voyage en premier episode.</h2>
+    </div>
+    <a class="btn btn--primary" routerLink="/upload">Creer mon premier episode</a>
+  </section>
+</main>
