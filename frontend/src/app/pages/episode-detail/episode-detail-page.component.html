@@ -1,0 +1,76 @@
+<main class="episode-page">
+  <nav class="stream-header stream-header--floating">
+    <app-logo [compact]="true"></app-logo>
+    <div class="stream-header__nav">
+      <a routerLink="/home">Accueil</a>
+      <a routerLink="/upload">Creer</a>
+      <a routerLink="/pricing">Tarifs</a>
+    </div>
+  </nav>
+
+  <section class="episode-hero" [style.--cover-image]="coverImage">
+    <div class="episode-hero__content">
+      <p class="eyebrow">{{ travel.title }} - Saison {{ episode.seasonNumber }}</p>
+      <h1>Episode {{ episode.episodeNumber }}:<br />{{ episode.title }}</h1>
+      <p>{{ episode.summary }}</p>
+
+      <div class="metadata-row">
+        <span>{{ episode.duration }}</span>
+        <span>{{ episode.location }}</span>
+        <span>{{ episode.date }}</span>
+        <span>{{ episode.photoCount }} photos</span>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn btn--primary" [routerLink]="['/player', episode.id]">
+          <span class="play-icon"></span>
+          Lecture
+        </a>
+        <button class="btn btn--glass" type="button">Partager</button>
+        <a class="btn btn--ghost" routerLink="/home">Retour</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="episode-layout">
+    <article class="glass-panel episode-summary">
+      <p class="eyebrow">Resume narratif</p>
+      <h2>{{ episode.subtitle }}</h2>
+      <p>{{ episode.summary }}</p>
+    </article>
+
+    <aside class="episode-stats">
+      <div>
+        <strong>{{ episode.duration }}</strong>
+        <span>Duree</span>
+      </div>
+      <div>
+        <strong>{{ episode.photoCount }}</strong>
+        <span>Photos</span>
+      </div>
+      <div>
+        <strong>{{ episode.scenes.length }}</strong>
+        <span>Scenes</span>
+      </div>
+    </aside>
+  </section>
+
+  <section class="scene-section">
+    <div class="rail-heading">
+      <h2>Liste des scenes</h2>
+      <span>Montage IA propose</span>
+    </div>
+    <div class="scene-timeline">
+      @for (scene of episode.scenes; track scene.id) {
+        <article class="scene-card">
+          <img [src]="scene.imageUrl" [alt]="scene.title" loading="lazy" />
+          <div>
+            <span>{{ scene.timecode }}</span>
+            <h3>{{ scene.title }}</h3>
+            <p>{{ scene.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+</main>
