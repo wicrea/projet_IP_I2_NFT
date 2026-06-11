@@ -1,0 +1,41 @@
+<main class="flow-page">
+  <nav class="topbar topbar--flow">
+    <app-logo></app-logo>
+    <a routerLink="/upload">Retour import</a>
+  </nav>
+
+  <section class="flow-shell flow-shell--wide">
+    <div class="flow-heading">
+      <p class="eyebrow">Filtrage intelligent</p>
+      <h1>Choisissez le ton de votre episode.</h1>
+      <p>L IA garde les souvenirs importants et adapte la narration a votre intention.</p>
+    </div>
+
+    <div class="question-stack">
+      @for (question of questions; track question.id) {
+        <article class="question-card glass-panel">
+          <h2>{{ question.title }}</h2>
+          <div class="choice-grid">
+            @for (option of question.options; track option) {
+              <button
+                class="choice-pill"
+                [class.choice-pill--selected]="isSelected(question.id, option)"
+                type="button"
+                (click)="select(question.id, option)"
+              >
+                {{ option }}
+              </button>
+            }
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="preference-summary">
+      <p>Configuration actuelle</p>
+      <strong>{{ selectedSummary() }}</strong>
+    </div>
+
+    <a class="btn btn--primary btn--wide" routerLink="/generating">Generer mon episode</a>
+  </section>
+</main>
