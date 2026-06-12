@@ -1,0 +1,31 @@
+:host {
+  display: inline-flex;
+}
+
+.brand-mark {
+  align-items: center;
+  display: inline-flex;
+  filter: drop-shadow(0 10px 18px rgba(255, 87, 104, 0.18));
+  line-height: 0;
+  text-decoration: none;
+}
+
+.brand-mark__image {
+  display: block;
+  height: auto;
+  width: clamp(5.2rem, 8vw, 7rem);
+}
+
+.brand-mark--compact .brand-mark__image {
+  width: clamp(5.2rem, 8vw, 7rem);
+}
+
+@media (max-width: 620px) {
+  .brand-mark__image {
+    width: 5.6rem;
+  }
+
+  .brand-mark--compact .brand-mark__image {
+    width: 5.6rem;
+  }
+}

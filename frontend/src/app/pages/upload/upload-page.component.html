@@ -1,0 +1,46 @@
+<main class="flow-page">
+  <nav class="topbar topbar--flow">
+    <app-logo></app-logo>
+  </nav>
+
+  <section class="flow-shell">
+    <div class="flow-heading">
+      <p class="eyebrow">Import de voyage</p>
+      <h1>Ajoutez les photos qui deviendront votre prochaine saison.</h1>
+      <p>Simulation V0: l import est visuel, sans backend et sans stockage reel.</p>
+    </div>
+
+    <article class="upload-zone glass-panel" [class.upload-zone--ready]="selectedCount() > 0">
+      <div class="upload-zone__icon">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M12 3v12" />
+          <path d="m7 8 5-5 5 5" />
+          <path d="M5 16v3h14v-3" />
+        </svg>
+      </div>
+      <h2>Deposez vos photos de voyage</h2>
+      <p>Glissez votre galerie ici ou selectionnez un album depuis votre appareil.</p>
+      <button class="btn btn--primary" type="button" (click)="selectPhotos()">Importer mes photos</button>
+
+      <div class="upload-counter">
+        @if (selectedCount() > 0) {
+          <strong>{{ selectedCount() }} photos selectionnees</strong>
+          <span>Bali, mai 2025 - tri IA pret a commencer</span>
+        } @else {
+          <strong>0 photo selectionnee</strong>
+          <span>Formats JPG, PNG et HEIC simules</span>
+        }
+      </div>
+    </article>
+
+    <aside class="privacy-card">
+      <span></span>
+      <div>
+        <strong>Vos photos restent privees et securisees.</strong>
+        <p>Aucune authentification ni envoi serveur dans cette V0: tout est mocke pour la demonstration.</p>
+      </div>
+    </aside>
+
+    <a class="btn btn--primary btn--wide" routerLink="/preferences">Continuer</a>
+  </section>
+</main>
